@@ -20,15 +20,19 @@ function onClickForm(e) {
   newApiService.query = e.currentTarget.elements.query.value;
   newApiService.resetPage();
   newApiService.gatePage().then(renderGalery);
-  refs.loadMoreBtn.classList.remove('is-hidden');
 }
 
 function onLoadMore() {
-  console.log('~  newApiService.pageNumber', newApiService.pageNumber);
   newApiService.gatePage().then(renderGalery);
 }
 
 function renderGalery(card) {
+  if (card.length > 11) {
+    refs.loadMoreBtn.classList.remove('is-hidden');
+  } else {
+    refs.loadMoreBtn.classList.add('is-hidden');
+  }
+
   refs.gallery.insertAdjacentHTML('beforeend', cards(card));
   scrollInto();
 }

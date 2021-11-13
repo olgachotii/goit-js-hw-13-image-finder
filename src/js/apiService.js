@@ -5,14 +5,13 @@ export default class NewApiService {
     this.whatToSearch = '';
   }
 
-  gatePage() {
-    return fetch(`https://pixabay.com/api/?image_type=photo&orientation=horizontal&q=${this.whatToSearch}&page=${this.pageNumber}&per_page=12&key=${this.CAY_API}
-`)
-      .then(res => res.json())
-      .then(({ hits }) => {
-        this.pageNumber += 1;
-        return hits;
-      });
+  async gatePage() {
+    const res =
+      await fetch(`https://pixabay.com/api/?image_type=photo&orientation=horizontal&q=${this.whatToSearch}&page=${this.pageNumber}&per_page=12&key=${this.CAY_API}
+`);
+    const { hits } = await res.json();
+    this.pageNumber += 1;
+    return hits;
   }
 
   resetPage() {
