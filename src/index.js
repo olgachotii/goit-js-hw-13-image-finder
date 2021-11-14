@@ -61,7 +61,7 @@ function scrollInto() {
 function runShow(e) {
   const instance = basicLightbox.create(`
    <div class="modal">
-        <img src='${e.target.dataset.src}'></img>
+        <img src='${e.target.dataset.src}' class='modal__img'></img>
     </div>
 `);
 
