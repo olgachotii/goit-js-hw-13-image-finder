@@ -29,6 +29,7 @@ li {
 
 .search-form {
   display: flex;
+  align-items: center;
   position: fixed;
   left: 50%;
   top: 20px;
@@ -61,4 +62,9 @@ li {
 .frame {
   height: 200px;
   width: 300px;
+}
+
+.pnotify {
+  background-color: aqua;
+  margin-top: auto;
 }
